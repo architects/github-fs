@@ -35,7 +35,7 @@ module GHFS
     end
 
     def api_entity
-      @api_entity ||= GHFS.api.contents(repository, path: path)
+      @api_entity ||= GHFS.api.contents(repository, path: path, ref: ref)
     rescue Octokit::NotFound
       @new_file = true
     rescue
@@ -61,6 +61,12 @@ module GHFS
 
     def writable?
       append? || mode == "w" || mode == "w+"
+    end
+
+    def ref
+      options.fetch(:ref) do
+        branch || options[:commit] || options[:tag] || "master"
+      end
     end
   end
 end
