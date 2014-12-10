@@ -1,4 +1,4 @@
-Copyright (c) 2014 Jonathan Soeder
+Copyright (c) 2014 Architects.io, Inc. and Jonathan Soeder
 
 MIT License
 
