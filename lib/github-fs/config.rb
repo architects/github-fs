@@ -10,6 +10,14 @@ module GHFS
       end
     end
 
+    def branch= value
+      @branch = value
+    end
+
+    def branch
+      @branch || "master"
+    end
+
     def github_access_token= value
       @github_access_token = value
     end

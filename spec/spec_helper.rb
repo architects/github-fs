@@ -11,5 +11,11 @@ RSpec.configure do |config|
 
     GHFS::Config.repository = cfg[:repository] || cfg["repository"]
     GHFS::Config.github_access_token = cfg[:github_access_token] || cfg["github_access_token"]
+
+    GHFS::Util.use_temporary_branch
+  end
+
+  config.after(:suite) do
+    GHFS::Util.remove_temporary_branch
   end
 end
